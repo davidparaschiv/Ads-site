@@ -8,3 +8,43 @@
 @media(prefers-reduced-motion:reduce){:root{scroll-behavior:auto}*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.construction-page{transform:rotate(-3deg)}.demo-copy,.demo-bottom{transform:none!important;opacity:1!important}}
 
 .motion-off #phaser-stage{visibility:hidden}.motion-off .object-fallback{visibility:visible}
+
+/* Mobile-only refinements. The existing desktop rules above are unchanged. */
+@media(max-width:800px){
+ .mobile-arrow{display:inline-block;width:14px;height:14px;vertical-align:-2px;fill:none;stroke:currentColor;stroke-width:1.25;stroke-linecap:round;stroke-linejoin:round;color:#858181;pointer-events:none;flex-shrink:0}
+ .button-red .mobile-arrow,.contact .mobile-arrow{color:#ead8d9}
+ .contact-circle .mobile-arrow{width:24px;height:24px;stroke-width:1}
+ .package li:before{content:'↗\FE0E';font-family:Arial,Helvetica,sans-serif;color:#858181;font-variant-emoji:text}
+ .construction-page{transform:none;transition:none}
+ .object-fallback{image-rendering:auto;transform:rotate(-6deg)}
+ #phaser-stage{overflow:hidden}
+ #phaser-stage canvas{image-rendering:auto!important}
+ .domain-nav a{min-height:40px;display:flex;align-items:center;justify-content:center}
+ .motion-toggle{min-height:32px}
+}
+@media(max-width:540px){
+ .scene-sticky{top:105px;padding-top:4px;box-shadow:0 10px 12px white}
+ .stage{aspect-ratio:1.55;max-height:260px}
+ .construction-page{left:9%;width:82%;top:13%;height:77%}
+ .demo-top{height:17%;font-size:7px}
+ .demo-top>span:nth-child(2){display:none}
+ .demo-copy{top:23%;width:58%;left:6%}
+ .demo-copy strong{font-size:22px;line-height:1.1;letter-spacing:-.045em}
+ .demo-eyebrow{font-size:7px;margin-bottom:7px}
+ .demo-rule{width:65%;margin:8px 0}
+ .demo-button{font-size:8px;padding:6px 8px}
+ .demo-button .mobile-arrow{width:10px;height:10px;color:#ead8d9}
+ .demo-bottom{left:6%;right:6%;bottom:6%;height:19%;gap:6px}
+ .demo-bottom>span{font-size:7px;line-height:1.35;padding:6% 8%}
+ .stage-coordinate{font-size:6px}
+ .coordinate-top{top:8px}
+ .object-fallback{width:35%;height:76%;top:6%;right:8%}
+ .domain-nav a{font-size:9px;min-height:40px}
+ .scene-bottom{font-size:10px}
+ .demo-note{font-size:8px}
+}
+
+@media(max-width:800px) and (prefers-reduced-motion:no-preference){.demo-copy,.demo-bottom{transition:transform .16s ease-out,opacity .16s linear}}
+
+@media(max-width:540px){.demo-rule,.demo-button{display:none}.demo-copy strong{font-size:21px}.demo-bottom{height:20%}}
+@media(max-width:800px){.portrait img{filter:none}.demo-copy,.demo-bottom{opacity:1}}
