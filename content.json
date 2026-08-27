@@ -1,0 +1,47 @@
+[
+  {
+    "type": "text",
+    "topic": "descrierea companiei",
+    "text": "D&A Agency S.R.L. este o firmă care dezvoltă soluții tip site-uri web pentru micro-întreprinderi \nGama noastră de servicii activează țintit asupra întreprinderilor mici și mijlocii cum ar fi: florării, nail salon, saloane de înfrumusețare, frizerii, servicii de detailing auto, ateliere auto mecanică, etc. "
+  },
+  {
+    "type": "text",
+    "topic": "informații de contact",
+    "text": "Număr de telefon: 0770278982 cu link de whatsapp \nAdresă de e-mail: support@daagency.com  "
+  },
+  {
+    "type": "text",
+    "topic": "sediu social",
+    "text": "Adresă: Strada Grințieșului, nr. 3 "
+  },
+  {
+    "type": "image",
+    "name": "logo.png",
+    "topic": "logo"
+  },
+  {
+    "type": "text",
+    "topic": "tema de culori",
+    "text": "roșu cu alb și text gri închis, dar nu foarte închis "
+  },
+  {
+    "type": "text",
+    "topic": "servicii oferite",
+    "text": "Plan simplu: 180 euro site cu animații și elemente interactive  \nPlan ultra: 300 euro: \n-site cu animații și elemente interactive  \n-două reclame tip Ad pe Tiktok cu promovare și crearea de video material \n-acces 3 luni la sistemul de gestiune Rezervari.ai pentru programări online la servciile dvs.  \nServicii de mentenanță: 30 euro pe lună include: \n-modificări live în 24h  \n-schimbări majore în 48h "
+  },
+  {
+    "type": "text",
+    "topic": "echipa",
+    "text": "David Paraschiv Software Developer \nAna Maria Goța Content Writer / UI Designer "
+  },
+  {
+    "type": "image",
+    "name": "ana.jpeg",
+    "topic": "image Ana Goța"
+  },
+  {
+    "type": "image",
+    "name": "david.jpeg",
+    "topic": "image David Paraschiv"
+  }
+]
