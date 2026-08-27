@@ -5,6 +5,11 @@ import {readFile, realpath, stat, writeFile, rm} from 'node:fs/promises';
 
 const root=path.dirname(fileURLToPath(import.meta.url));
 const types={'.html':'text/html; charset=utf-8','.css':'text/css; charset=utf-8','.js':'text/javascript; charset=utf-8','.json':'application/json; charset=utf-8','.png':'image/png','.jpeg':'image/jpeg','.jpg':'image/jpeg','.webp':'image/webp','.txt':'text/plain; charset=utf-8','.woff2':'font/woff2'};
+const cli=process.argv.slice(2);
+const option=name=>{const i=cli.indexOf(name);return i>=0?cli[i+1]:undefined;};
+const bindHost=option('--host')||'127.0.0.1';
+const strictPort=cli.includes('--strictPort');
+const qaEnabled=strictPort&&option('--port')==='4173';
 const ready=process.env.DA_READY_FILE;
 const token=process.env.DA_LAUNCH_TOKEN;
 const allowed=new Set(['index.html','styles.css','script.js','content.json']);
@@ -15,7 +20,7 @@ const server=http.createServer(async(req,res)=>{
     if(token && requested==='/_ready/'+token){res.writeHead(200,{'content-type':'application/json','cache-control':'no-store'});res.end(JSON.stringify({token}));return;}
     const decoded=decodeURIComponent(requested);
     const relative=decoded==='/'?'index.html':decoded.slice(1);
-    if(relative.includes('\\') || relative.split('/').some(p=>p==='..'||p.startsWith('.')) || (!allowed.has(relative)&&!relative.startsWith('images/')&&!relative.startsWith('vendor/'))){res.writeHead(404);res.end('Pagina nu a fost găsită.');return;}
+    if(relative.includes('\\') || relative.split('/').some(p=>p==='..'||p.startsWith('.')) || (!allowed.has(relative)&&!relative.startsWith('images/')&&!relative.startsWith('vendor/')&&!(qaEnabled&&relative.startsWith('tests/')))){res.writeHead(404);res.end('Pagina nu a fost găsită.');return;}
     const filename=await realpath(path.join(root,relative));
     if(!filename.startsWith(root+path.sep) || !(await stat(filename)).isFile()){res.writeHead(404);res.end();return;}
     const bytes=await readFile(filename);
@@ -23,10 +28,10 @@ const server=http.createServer(async(req,res)=>{
     res.end(req.method==='HEAD'?undefined:bytes);
   }catch(err){res.writeHead(err instanceof URIError?400:404);res.end('Resursa nu este disponibilă.');}
 });
-let preferred=Number(process.env.PORT||3000);
+let preferred=Number(option('--port')??process.env.PORT??3000);
 if(!Number.isInteger(preferred)||preferred<0||preferred>65535){console.error('Port invalid. Folosește un număr între 0 și 65535.');process.exit(1);}
 server.on('error',err=>{
-  if(err.code==='EADDRINUSE'&&preferred!==0){console.log('Portul preferat este ocupat. Aleg un port liber.');preferred=0;server.listen(0,'127.0.0.1');}
+  if(err.code==='EADDRINUSE'&&preferred!==0&&!strictPort){console.log('Portul preferat este ocupat. Aleg un port liber.');preferred=0;server.listen(0,bindHost);}
   else {console.error('Serverul nu a pornit:',err.message);process.exit(1);}
 });
 server.on('listening',async()=>{
@@ -37,4 +42,4 @@ server.on('listening',async()=>{
 });
 async function stop(){server.close();server.closeAllConnections();if(ready)await rm(ready,{force:true});}
 process.on('SIGINT',stop);process.on('SIGTERM',stop);
-server.listen(preferred,'127.0.0.1');
+server.listen(preferred,bindHost);

@@ -58,6 +58,6 @@ Checkout-ul pentru linkul privat conține suplimentar adaptorul de găzduire în
 
 Au fost verificate sintaxa JavaScript/Bash, încărcarea resurselor și destinațiile interne, pornirea pe port liber, oprirea după instalare eșuată, evitarea unui port ocupat, semnalul de disponibilitate înaintea deschiderii browserului, căile cu spații și oprirea serverului propriu prin Ctrl+C. Testele de deschidere a browserului folosesc un înlocuitor controlat care înregistrează adresa deschisă.
 
-Testele au rulat pe Linux/Bash. Rularea pe Windows/Git Bash, aspectul și interacțiunile într-un browser real nu au fost verificate. Publicarea reală GitHub Pages necesită repository-ul și autentificarea utilizatorului.
+Testele au rulat pe Linux/Bash. Rularea pe Windows/Git Bash și pe telefoane fizice nu a fost verificată. Corecțiile mobile au fost inspectate în Chrome printr-un cadru responsive la 320, 390, 414 și 768 px; lățimea documentului nu a depășit viewport-ul. La 390 px s-au verificat săgețile SVG, navigarea între domenii și canvas-ul cu rezoluție dublă. Animația mobilă folosește requestAnimationFrame, țintă 60 fps și interpolare temporală; acestea sunt setări, nu o garanție de 60 fps pe fiecare telefon. Publicarea reală GitHub Pages necesită repository-ul și autentificarea utilizatorului.
 
 Surse tehnice: [Phaser](https://docs.phaser.io/phaser/concepts/gameobjects), [configurarea GitHub Pages](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site).

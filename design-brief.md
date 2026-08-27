@@ -14,3 +14,8 @@ Corecții: categorie suplimentară numită exact „Altul”. Site integral în 
 Identitate vizuală: #ce2334, alb, #454444. Tipografie sans serif cu accente serif italice. Fotografii autentice ale echipei și trei obiecte decorative PNG generate, distincte de fotografiile afacerii.
 
 Diferențiere de Jovsky: explorare verticală pe domenii cu scenă fixă, asamblare de pagină, meniu sus și pachete comparabile; nu galerie orizontală cu dezvăluire circulară și meniu jos.
+
+
+## Corecții cerute numai pe mobil
+
+Aspectul și comportamentul desktop rămân nemodificate. Mobil: săgeți SVG monocrome, canvas la 2–3 ori dimensiunea CSS, țintă de randare 60 fps prin requestAnimationFrame, interpolare temporală a progresului și a schimbării obiectelor, deplasări mai scurte și eliminarea estompării textelor. Verificare responsive obligatorie pentru proiectele viitoare.
