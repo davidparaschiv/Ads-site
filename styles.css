@@ -66,3 +66,7 @@
 .contact-whatsapp>img{width:38px;height:38px;flex:0 0 38px}
 @media(max-width:800px){.package-icon{width:64px;height:64px}.contact-whatsapp{gap:20px}}
 @media(max-width:540px){.contact-whatsapp{gap:18px}.contact-whatsapp>img{width:34px;height:34px;flex-basis:34px}}
+
+.package-grid > .package:only-child{grid-column:1/-1;justify-self:center;width:calc((100% - 24px)/2)}
+@media(max-width:800px){.package-grid > .package:only-child{width:calc((100% - 16px)/2)}}
+@media(max-width:540px){.package-grid > .package:only-child{width:100%}}
