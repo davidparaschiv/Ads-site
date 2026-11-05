@@ -85,6 +85,7 @@
 .portfolio-caption{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:22px 0 20px;border-bottom:1px solid var(--line)}
 .portfolio-number{display:block;font-size:9px;letter-spacing:.12em;color:var(--muted);margin-bottom:10px}
 .portfolio-caption h3{font-size:20px;letter-spacing:-.04em;line-height:1.25}
+.portfolio-description{font-size:12px;line-height:1.6;color:var(--muted);margin-top:9px}
 .portfolio-domain{display:block;font-size:11px;color:var(--muted);margin-top:7px}
 .portfolio-arrow{display:grid;place-items:center;flex-shrink:0;width:32px;height:32px;border:1px solid var(--line);border-radius:50%;font-size:18px;transition:background .2s,color .2s,border-color .2s}
 @media(hover:hover){.portfolio-card:hover .portfolio-preview{transform:translateY(-5px);box-shadow:0 12px 26px #45444412;border-color:#b4ada6}.portfolio-card:hover .portfolio-arrow{background:var(--red);border-color:var(--red);color:white}}
