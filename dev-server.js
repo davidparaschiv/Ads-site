@@ -4,7 +4,7 @@ import {fileURLToPath} from 'node:url';
 import {readFile, realpath, stat, writeFile, rm} from 'node:fs/promises';
 
 const root=path.dirname(fileURLToPath(import.meta.url));
-const types={'.html':'text/html; charset=utf-8','.css':'text/css; charset=utf-8','.js':'text/javascript; charset=utf-8','.json':'application/json; charset=utf-8','.png':'image/png','.jpeg':'image/jpeg','.jpg':'image/jpeg','.webp':'image/webp','.txt':'text/plain; charset=utf-8','.woff2':'font/woff2'};
+const types={'.html':'text/html; charset=utf-8','.css':'text/css; charset=utf-8','.js':'text/javascript; charset=utf-8','.json':'application/json; charset=utf-8','.png':'image/png','.jpeg':'image/jpeg','.jpg':'image/jpeg','.webp':'image/webp','.txt':'text/plain; charset=utf-8','.xml':'application/xml; charset=utf-8','.woff2':'font/woff2'};
 const cli=process.argv.slice(2);
 const option=name=>{const i=cli.indexOf(name);return i>=0?cli[i+1]:undefined;};
 const bindHost=option('--host')||'127.0.0.1';
@@ -12,7 +12,7 @@ const strictPort=cli.includes('--strictPort');
 const qaEnabled=strictPort&&option('--port')==='4173';
 const ready=process.env.DA_READY_FILE;
 const token=process.env.DA_LAUNCH_TOKEN;
-const allowed=new Set(['index.html','styles.css','script.js','content.json']);
+const allowed=new Set(['index.html','styles.css','script.js','content.json','robots.txt','sitemap.xml']);
 const server=http.createServer(async(req,res)=>{
   try {
     if(!['GET','HEAD'].includes(req.method)){res.writeHead(405,{'Allow':'GET, HEAD'});res.end();return;}

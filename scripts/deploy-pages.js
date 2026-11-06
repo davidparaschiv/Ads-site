@@ -31,7 +31,7 @@ try{
   if(!['da','d','yes','y'].includes(confirmation)){console.log('Publicare anulată.');process.exitCode=0;}
   else {
     // Explicit allowlist only: no server, source JSON, credentials or print poster.
-    const files=['index.html','styles.css','script.js','images','vendor'];
+    const files=['index.html','styles.css','script.js','robots.txt','sitemap.xml','images','vendor'];
     for(const name of files)await readdir(path.dirname(path.join(root,name)));
     const name=getConfig('user.name')||await ask('Numele tău pentru commit: ');
     const email=getConfig('user.email')||await ask('Adresa de e-mail pentru commit: ');
