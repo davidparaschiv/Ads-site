@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://dasite.agency/sitemap.xml
